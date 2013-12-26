@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SawyerSite::Application.config.secret_key_base = '9ba32bedebd539b6b5316ec68becf116dd1953750f0fad9ffa96d8cc19e99cd304a779a16e06a8d3899905b9b8b8689483093b21e05441f6bd05a4477a35d119'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+SawyerSite::Application.config.secret_key_base = secure_token
