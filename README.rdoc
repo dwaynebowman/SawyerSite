@@ -1,5 +1,5 @@
 == README
 
-This code is used to create a personal website. I plan on having a portfolio of my personal projects and school assignments, 
+This code is used to create a personal website. I plan on including a portfolio of my personal projects and school assignments, 
 my resume, a short biography, relevant links, as well as any other interesting information or events that are relevant to
 my life.
